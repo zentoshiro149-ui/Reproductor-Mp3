@@ -17,8 +17,8 @@ const songs = [
     { name: "Dark Aria", src: "musicas/Solo Leveling EP 6 OST FULL _DARK ARIA ＜LV2＞_ by SawanoHiroyuki[nZk]_XAI (Lyrics)(MP3_320K).mp3" },
     { name: "Judas", src: "musicas/Lady Gaga - Judas (Lyrics)(MP3_320K).mp3" },
     { name: "Himno Nacional", src: "musicas/song1.mp3" },
-    { name: "¿Cuan Malo Puedo Ser?", src: "musicas/¿Cuán Malo Puedo Ser_ __ El Lórax __ Video Completo   Letra(MP3_320K).mp3" },
-    { name: "YOASOBI「アイドル」", src: "musicas/YOASOBI「アイドル」 Official Music Video(MP3_320K).mp3" }
+    { name: "¿Cuán Malo Puedo Ser?", src: "musicas/¿Cuán Malo Puedo Ser_ __ El Lórax __ Video Completo   Letra(MP3_320K).mp3" },
+    { name: "YOASOBI - Idol", src: "musicas/YOASOBI「アイドル」 Official Music Video(MP3_320K).mp3" }
 ];
 
 let currentSong = 0;
@@ -54,10 +54,11 @@ function togglePlay() {
 }
 
 function nextSong() {
-    currentSong = isShuffle 
-        ? Math.floor(Math.random() * songs.length)
-        : (currentSong + 1) % songs.length;
-
+    if (isShuffle) {
+        currentSong = Math.floor(Math.random() * songs.length);
+    } else {
+        currentSong = (currentSong + 1) % songs.length;
+    }
     loadSong(currentSong);
     audio.play();
 }
@@ -86,13 +87,16 @@ audio.addEventListener("timeupdate", () => {
     currentTimeEl.textContent = formatTime(audio.currentTime);
 });
 
-progress.addEventListener("mousedown", () => {
+progress.addEventListener("input", () => {
     isDragging = true;
+    const newTime = (progress.value / 100) * audio.duration;
+    currentTimeEl.textContent = formatTime(newTime);
 });
 
-progress.addEventListener("mouseup", () => {
+progress.addEventListener("change", () => {
+    const newTime = (progress.value / 100) * audio.duration;
+    audio.currentTime = newTime;
     isDragging = false;
-    audio.currentTime = (progress.value / 100) * audio.duration;
 });
 
 volume.addEventListener("input", () => {
@@ -101,12 +105,16 @@ volume.addEventListener("input", () => {
 
 function toggleRepeat() {
     isRepeat = !isRepeat;
-    repeatBtn.classList.toggle("active");
+    if (isRepeat) isShuffle = false;
+    repeatBtn.classList.toggle("active", isRepeat);
+    shuffleBtn.classList.remove("active");
 }
 
 function toggleShuffle() {
     isShuffle = !isShuffle;
-    shuffleBtn.classList.toggle("active");
+    if (isShuffle) isRepeat = false;
+    shuffleBtn.classList.toggle("active", isShuffle);
+    repeatBtn.classList.remove("active");
 }
 
 audio.addEventListener("ended", () => {
