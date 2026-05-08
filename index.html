@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reproductor MP3</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="player">
+    <h2>Reproductor MP3</h2>
+
+    <audio id="audio"></audio>
+
+    <div class="controls">
+        <button onclick="prevSong()">⏮</button>
+        <button onclick="togglePlay()" id="playBtn">▶️</button>
+        <button onclick="nextSong()">⏭</button>
+    </div>
+
+    <input type="range" id="progress" value="0">
+
+    <div class="time">
+        <span id="currentTime">0:00</span> / 
+        <span id="duration">0:00</span>
+    </div>
+
+    <div class="extra-controls">
+        <button onclick="toggleRepeat()" id="repeatBtn">🔁</button>
+        <button onclick="toggleShuffle()" id="shuffleBtn">🔀</button>
+    </div>
+
+    <div class="volume">
+        🔊 <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+    </div>
+
+    <ul id="playlist"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
