@@ -6,18 +6,14 @@ const songs = [
     { name: "Bling Bang Bang Born", src: "musicas/Bling-Bang-Bang-Born (Official Music Video)(MP3_320K).mp3" },
     { name: "El Sake de Binks", src: "musicas/El Sake De Binks Español Latino Lyrics _anime _manga _onepiece _binkssake _elsakedebinks _cancion(MP3_320K).mp3" },
     { name: "Super Mario Bros Theme", src: "musicas/Super Mario Bros. Theme Song(MP3_320K).mp3" },
-
     { name: "Amplify", src: "musicas/amplify.mp3" },
-
     { name: "Yodel Vacas Vaqueras", src: "musicas/Jaime López - Yodel-Adle-Eedle-Idle-Oo __ Vacas Vaqueras __ Video _ Letra(MP3_320K).mp3" },
     { name: "Tuca Donka", src: "musicas/TUCA DONKA(MP3_320K).mp3" },
     { name: "One Piece Gear 5", src: "musicas/One Piece _ Drums of Liberation x Overtaken (GEAR 5 Theme) - TU Symphony Orchestra(MP3_320K).mp3" },
     { name: "Rosa Pastel", src: "musicas/Belanova _ Rosa Pastel [Letra](MP3_320K).mp3" },
     { name: "Thriller", src: "musicas/Michael Jackson - Thriller (Official Video - Shortened Version)(MP3_320K).mp3" },
-
     { name: "Gambling Opening", src: "musicas/gamble.mp3" },
     { name: "Zom 100 Opening", src: "musicas/zom100.mp3" },
-
     { name: "Dark Aria", src: "musicas/Solo Leveling EP 6 OST FULL _DARK ARIA ＜LV2＞_ by SawanoHiroyuki[nZk]_XAI (Lyrics)(MP3_320K).mp3" },
     { name: "Judas", src: "musicas/Lady Gaga - Judas (Lyrics)(MP3_320K).mp3" },
     { name: "Himno Nacional", src: "musicas/song1.mp3" },
